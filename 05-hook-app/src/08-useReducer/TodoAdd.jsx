@@ -1,32 +1,32 @@
-import { useState } from "react";
+import { useForm } from "../hooks/useForm"
 
-export const TodoAdd = (onNewTodo) => {
+export const TodoAdd = ({ onNewTodo }) => {
     
-    const [inputValue, setInputValue] = useState('');
+    const { description, onInputChange, onResetForm} = useForm({
+        description:''
+    });
 
-    const onInputChange = ({target}) => {
-        setInputValue(target.value);
-    }
-
-    const onSubmit = (event) => {
+    const onFormSubmit = ( event ) => {
         event.preventDefault();
-        //trim() -> elimina espacios en blanco
-        //length identifica cuanto strings tiene la variable
-        if ( inputValue.trim().length > 0) {
-            onNewTodo( inputValue );
-            setInputValue('');
-        }else{
-            alert('ingrese algo')
+        if (description.length <= 1) return;
+        
+        const newTodo = {
+            id: new Date().getTime(),
+            description: description,
+            done: false,
         }
+
+        onNewTodo( newTodo );
+        onResetForm();
     }
 
     return (
-        <form onSubmit={ onSubmit }>
+        <form onSubmit={ onFormSubmit }>
             <input 
                 type="text" 
-                name="" 
+                name="description" 
                 id="" 
-                value={inputValue}
+                value={description}
                 onChange={onInputChange}
                 placeholder="que hay que hacer?"
                 className="form-control"

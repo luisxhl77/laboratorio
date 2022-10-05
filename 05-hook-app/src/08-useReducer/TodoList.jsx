@@ -1,11 +1,21 @@
+import { TodoItem } from "./TodoItem"
 
-export const TodoList = ({description}) => {
+export const TodoList = ({todos = [], onDeleteTodo, onToggleTodo}) => {
+
+
+
     return (
         <ul className="list-group">
-            <li className="list-group-item d-flex justify-content-between">
-                <span className="align-self-center"> { description } </span>
-                <button className="btn btn-primary"> Borrar </button>
-            </li>
+            {
+                todos.map((todo) =>(
+                    <TodoItem 
+                        todo={todo} 
+                        key={todo.id} 
+                        onDeleteTodo = { onDeleteTodo }
+                        onToggleTodo = { onToggleTodo }
+                    />
+                ))
+            }
         </ul>
     )
 }
