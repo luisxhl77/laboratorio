@@ -1,0 +1,38 @@
+import { useState } from "react"
+import { useGetTodoQuery, useGetTodosQuery } from "./store/apis/todos"
+
+export const TodoApp = () => {
+
+  const [todoId, setTodoId] = useState(1)
+  
+  const { data: todo, isLoading} = useGetTodoQuery(todoId)
+
+  const nextTodo = () => {
+    setTodoId(todoId + 1)
+  }
+  const previowTodo = () => {
+    setTodoId(todoId - 1)
+  }
+
+  return (
+    <>
+      <h1>todos -RTK Query</h1>
+      <hr />
+      <h4>isLoading: { isLoading ? 'True' : 'False'}</h4>
+      <pre>{ JSON.stringify( todo )}</pre>
+      <button onClick={ nextTodo }>next todo</button>
+      <button onClick={ previowTodo }>previow todo</button>
+
+      {/* <ul>
+        {
+          todos.map( todo => (
+            <li key={todo.id}>
+              <strong> { todo.completed ? 'DONE' : 'Pending'}</strong>
+              { todo.title } 
+            </li>
+          ))
+        }
+      </ul> */}
+    </>
+  )
+}
