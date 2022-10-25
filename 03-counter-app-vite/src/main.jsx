@@ -7,7 +7,7 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         {/*<Helloword title="hello word" name="goku"/>*/}
-        <CounterApp value={123123} name="luis"/>
+        <CounterApp value={1} name="luis"/>
     </React.StrictMode>
 )
 

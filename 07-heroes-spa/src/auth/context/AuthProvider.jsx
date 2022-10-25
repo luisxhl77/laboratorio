@@ -8,7 +8,7 @@ const initialState = {
 }
 
 const init = () => {
-        const user =  JSON.parse( window.localStorage.getItem('user') );
+    const user =  JSON.parse( window.localStorage.getItem('user') );
 
     return {
         logged: !!user,
@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
             login: login,
             logout: logout,
         }}>
-            { children}
+            { children }
         </AuthContext.Provider>
     )
 }
