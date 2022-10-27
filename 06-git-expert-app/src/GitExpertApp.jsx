@@ -3,7 +3,7 @@ import { AddCategory, GitGrid } from "./components";
 
 export const GitExpertApp = () => {
 
-  const [ categories, setCategories ] = useState(['one Punch']);
+    const [ categories, setCategories ] = useState(['one Punch']);
   
     const onAddCategory = (newCategory) => {
         if (categories.includes(newCategory)) {
@@ -12,8 +12,8 @@ export const GitExpertApp = () => {
             //categories.push(newCategory);
             //forma buena == setCategories([...categories, 'demon slayer']);
             //forma buena == setCategories(cat => [...categories, name] );
-            setCategories([newCategory,...categories]);
-            console.log(newCategory);
+            setCategories([ newCategory, ...categories ]);
+            console.log( newCategory );
         }
     }
 
