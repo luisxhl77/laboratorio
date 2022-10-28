@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas de <TodoApp/>  1`] = `undefined`;
+
+exports[`Pruebas de <TodoApp/> debe de hacer ma 1`] = `undefined`;
+
+exports[`Pruebas de <TodoApp/> debe de hacer match con el snapshot 1`] = `undefined`;
+
+exports[`Pruebas de <TodoApp/> debe de hacer match con el snapshot 2`] = `undefined`;
+
+exports[`Pruebas de <TodoApp/> deberia 1`] = `undefined`;
